@@ -1,0 +1,40 @@
+paths:
+  /region/add/{region_id}:
+    post:
+      tags:
+        - "Region"
+      summary: "1. 특정 지역에 가게 추가하기"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "region_id"
+          in: "path"
+          required: true
+          type: "string"
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              name:
+                type: "string"
+                example: "뿡어당"
+              address:
+                type: "string"
+                example: "서울특별시 성북구 보문로34길 94 뿡어당"
+              score:
+                type: "integer"
+                example: 0
+              region_id:
+                type: "string"
+                example: "1"
+      responses:
+        200:
+          description: "새로운 식당이 성공적으로 추가되었습니다."
+        400:
+          description: "잘못된 요청 - 유효하지 않은 입력"
+        500:
+          description: "내부 서버 오류 - 무언가가 잘못되었습니다."

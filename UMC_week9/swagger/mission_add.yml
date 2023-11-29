@@ -1,0 +1,33 @@
+paths:
+  /mission/add:
+    post:
+      tags:
+        - "mission"
+      summary: "3. 가게에 새로운 미션 추가"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              member_id:
+                type: "integer"
+                example: 1
+              mission_id:
+                type: "integer"
+                example: 1
+              status:
+                type: "string"
+                example: "yetyet"
+      responses:
+        200:
+          description: "새로운 미션이 성공적으로 추가되었습니다."
+        400:
+          description: "잘못된 요청 - 유효하지 않은 입력"
+        500:
+          description: "내부 서버 오류 - 무언가가 잘못되었습니다."

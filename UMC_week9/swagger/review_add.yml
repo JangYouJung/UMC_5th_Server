@@ -1,0 +1,43 @@
+paths:
+  /review/add/{mission_id}:
+    post:
+      tags:
+        - "Review"
+      summary: "2. 가게에 리뷰 추가하기"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "mission_id"
+          in: "path"
+          required: true
+          type: "string"
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              member_id:
+                type: "integer"
+                example: 1
+              store_id:
+                type: "integer"
+                example: 1
+              mission_id:
+                type: "integer"
+                example: 1
+              body:
+                type: "string"
+                example: "너무 맛있고 사장님이 친절하세요"
+              score:
+                type: "integer"
+                example: 5
+      responses:
+        200:
+          description: "새로운 리뷰가 성공적으로 추가되었습니다."
+        400:
+          description: "잘못된 요청 - 유효하지 않은 입력"
+        500:
+          description: "내부 서버 오류 - 무언가가 잘못되었습니다."
